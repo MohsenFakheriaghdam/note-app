@@ -12,7 +12,7 @@ export default function AddNewNote({ onAddNote }) {
 			title,
 			description,
 			isCompleted: false,
-			createdAt: new Date().toLocaleDateString(),
+			createdAt: new Date().toISOString(),
 		};
 		// setNotes(newNote);
 		onAddNote(newNote);

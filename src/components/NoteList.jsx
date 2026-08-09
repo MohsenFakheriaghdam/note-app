@@ -1,37 +1,5 @@
 export default function NoteList({ notes, onDelete, checkNote }) {
 	return (
-		<div className="">
-			{/* filter notes */}
-			<FilterNotes />
-			{/* Notes */}
-			<Notes notes={notes} key={notes.id} onDelete={onDelete} checkNote={checkNote} />
-		</div>
-	);
-}
-
-function FilterNotes() {
-	return (
-		<div>
-			<div className="flex items-center justify-between *:cursor-pointer *:font-bold *:text-xl *:text-gray-500 ">
-				<div className="flex items-center justify-center gap-2 [&>*:nth-child(2)]:p-2 [&>*:nth-child(2)]:bg-gray-500 [&>*:nth-child(2)]:rounded-full [&>*:nth-child(2)]:text-white ">
-					<span>All</span>
-					<span className="flex-center w-7.5 h-7.5 font-md">2</span>
-				</div>
-				<div className="flex items-center justify-center gap-2 [&>*:nth-child(2)]:p-2 [&>*:nth-child(2)]:bg-gray-500 [&>*:nth-child(2)]:rounded-full [&>*:nth-child(2)]:text-white ">
-					<span>Completed</span>
-					<span className="flex-center w-7.5 h-7.5 font-md">2</span>
-				</div>
-				<div className="flex items-center justify-center gap-2 [&>*:nth-child(2)]:p-2 [&>*:nth-child(2)]:bg-gray-500 [&>*:nth-child(2)]:rounded-full [&>*:nth-child(2)]:text-white ">
-					<span>Open</span>
-					<span className="flex-center w-7.5 h-7.5 font-md">2</span>
-				</div>
-			</div>
-		</div>
-	);
-}
-
-function Notes({ notes, onDelete, checkNote }) {
-	return (
 		<div className="flex flex-col gap-5 mt-7">
 			{/* Note */}
 			{notes.map((note) => {
@@ -55,7 +23,7 @@ function Notes({ notes, onDelete, checkNote }) {
 						{/* note footer */}
 						<div>
 							<p className="text-gray-500">
-								{new Date().toLocaleDateString("en-US", {
+								{new Date(note.createdAt).toLocaleDateString("en-US", {
 									month: "short",
 									day: "2-digit",
 									year: "numeric",
